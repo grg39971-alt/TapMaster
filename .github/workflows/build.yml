@@ -8,6 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q TapMaster.zip
+      - name: Dolgu ekle (yaklasik 25 MB)
+        run: |
+          mkdir -p TapMaster/app/src/main/assets
+          head -c 23500000 /dev/urandom > TapMaster/app/src/main/assets/pad.bin
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
